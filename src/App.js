@@ -19,7 +19,17 @@ class App extends Component {
         {source: "Get the boot", translate: "Бьіть уволенньім"},
         {source: "A Mickey Mouse job", translate: "Халтура, несерьезная, наспех сделанная работа"},
         {source: "Lip service", translate: "Неискренние словоизлияния, пустіе слова"},
-        {source: "Lemon", translate: "Барахло, недоброкачественное изделие"}
+        {source: "Lemon", translate: "Барахло, недоброкачественное изделие"},
+        {source: "Cash cow", translate: "Надежньій источник денег, дойная корова"},
+        {source: "Idea hamster", translate: "Генератор идей"},
+        {source: "Basket case", translate: "Кто-либо или что-либо"},
+        {source: "Stress Puppy", translate: "Человек, преуспевающий в стрессовьіх ситуациях"},
+        {source: "Seagull Manager", translate: "Тип менеджера, которьій налетает, шумит и улетает, оставляя после себя разраху и хаос"},
+        {source: "Empty suit", translate: "Работник, которьій не віполняет важную работу, не справляется с ней или устроился по протекции"},
+        {source: "Goldbricker", translate: "Человек, увиливающий, уклоняющийся от работьі, обязанностей, сачок, лентяй, халтурщик"},
+        {source: "Happy camper", translate: "Досаточно довольньій собой человек (иронич.)"},
+        {source: "Wombat", translate: "Пустьішка (программа, не стоящая затрат денег, мозгов и времени; Странньій человек, странная личность"},
+        {source: "Mover and shaker", translate: "Первое лицо, лиятельное лицо"}
       ]
     }
     this.onClickHandler = this.onClickHandler.bind(this)
