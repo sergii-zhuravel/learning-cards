@@ -10,19 +10,19 @@ class App extends Component {
       currentCard: 0,
       fullCard: true,
       cards: [
-        {source: "Dead wood", translate: "балласт, что=нибуть негодное, бесполезное"},
-        {source: "Put your oar in", translate: "Вставити свої п'ять копійок, втрутитися (в розмову)"},
-        {source: "Been counter", translate: "Бухгалтер, людина що веде розрахунки"},
+        {source: "Dead wood", translate: "балласт, что-нибуть негодное, бесполезное"},
+        {source: "Put your oar in", translate: "Вставить свои 5 копеек, стревать в разговор"},
+        {source: "Been counter", translate: "Бухгалтер, счетовод"},
         {source: "Rat race", translate: "Бешенная погоня за богатством, ожесточенная конкуренция"},
         {source: "Dogsbody", translate: "мальчик на побегушках, принеси подай, за маленькую плату"},
-        {source: "Cushy job", translate: "Непільная работенка, тепленькое местечко"},
+        {source: "Cushy job", translate: "Непьільная работенка, тепленькое местечко"},
         {source: "Get the boot", translate: "Бьіть уволенньім"},
         {source: "A Mickey Mouse job", translate: "Халтура, несерьезная, наспех сделанная работа"},
-        {source: "Lip service", translate: "Неискренние словоизлияния, пустіе слова"},
+        {source: "Lip service", translate: "Неискренние словоизлияния, пустьіе слова"},
         {source: "Lemon", translate: "Барахло, недоброкачественное изделие"},
         {source: "Cash cow", translate: "Надежньій источник денег, дойная корова"},
         {source: "Idea hamster", translate: "Генератор идей"},
-        {source: "Basket case", translate: "Кто-либо или что-либо"},
+        {source: "Basket case", translate: "Кто-либо или что-либо, находящееся в плачевном, изношенном состоянии, слабьій, немощньій человек"},
         {source: "Stress Puppy", translate: "Человек, преуспевающий в стрессовьіх ситуациях"},
         {source: "Seagull Manager", translate: "Тип менеджера, которьій налетает, шумит и улетает, оставляя после себя разраху и хаос"},
         {source: "Empty suit", translate: "Работник, которьій не віполняет важную работу, не справляется с ней или устроился по протекции"},
@@ -41,6 +41,7 @@ class App extends Component {
       currentCard: (prevState.currentCard >= prevState.cards.length-1) ? 0 : prevState.currentCard + 1
     }))
   }
+  
   onSelectHandler(data = true) {
     this.setState(prevState => ({ 
       fullCard: data
@@ -66,7 +67,7 @@ class App extends Component {
           <section  className="jumbotron specialjum text-center">
             <div>
               <form action="" className="" >
-                <div className="row">
+                <div className="d-flex justify-content-center">
                   <div className="col-md-6 text-right">
                     <div className="form-check">
                       <label className="form-check-label">
@@ -92,7 +93,14 @@ class App extends Component {
                     <p className="lead text-muted">{this.state.cards[this.state.currentCard].translate}</p>
                   }
                 </div>
-                <span className="text-muted">-{this.state.currentCard + 1}-</span>
+                <div className="text-muted">
+                  <button onClick={ () => {this.setState({currentCard: 0})} } className="fa fa-fast-backward"></button>
+                  <button onClick={ () => {this.setState({currentCard:this.state.currentCard != 0 ? this.state.currentCard - 1 : 0})} } className="fa fa-step-backward"></button>
+                  -{this.state.currentCard + 1}-
+                  <button onClick={ () => {this.setState({currentCard:this.state.currentCard < this.state.cards.length-1 ? this.state.currentCard + 1 : this.state.cards.length-1})} } className="fa fa-step-forward"></button>
+                  <button onClick={ () => {this.setState({currentCard: this.state.cards.length-1})} } className="fa fa-fast-forward"></button>
+                  
+                </div>
           </section>
         </main>
       </div>
