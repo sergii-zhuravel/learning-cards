@@ -4,9 +4,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+
+  setInitialState() {
+    this.setState ({
       isMenuOpen: false,
       currentCard: 0,
       fullCard: true,
@@ -32,9 +32,21 @@ class App extends Component {
         {source: "Wombat", translate: "Пустьішка (программа, не стоящая затрат денег, мозгов и времени; Странньій человек, странная личность"},
         {source: "Mover and shaker", translate: "Первое лицо, лиятельное лицо"}
       ]
+    })
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMenuOpen: false,
+      currentCard: 0,
+      fullCard: true,
+      cards: []
     }
     this.onClickHandler = this.onClickHandler.bind(this)
+  }
 
+  componentWillMount() {
+    this.setInitialState();
   }
   
   onClickHandler() {
@@ -90,8 +102,8 @@ class App extends Component {
                 <div className="col-sm-4 offset-md-1 py-4">
                   <h4 className="text-white">Subjects</h4>
                   <ul className="list-unstyled">
-                    <li><a href="#" className="text-white">Business idioms</a></li>
-                    <li><a onClick={ () => {this.onMoodIdiomsClick()} } href="#" className="text-white">Mood idioms</a></li>
+                    <li><a onClick={() => {this.setInitialState()}} href="#" className="text-white">Business idioms</a></li>
+                    <li><a onClick={() => {this.onMoodIdiomsClick()}} href="#" className="text-white">Mood idioms</a></li>
                   </ul>
                 </div>
               </div>
