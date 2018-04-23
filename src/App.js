@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isMenuOpen: false,
       currentCard: 0,
       fullCard: true,
       cards: [
@@ -47,17 +48,62 @@ class App extends Component {
       fullCard: data
     }))
   }
+
+  onMoodIdiomsClick() {
+    this.setState(prevState => ({ 
+      isMenuOpen: false,
+      currentCard: 0,
+      fullCard: true,
+      cards: [
+        {source: "I'm totally over the moon", translate: "Я безумно счастлив"},
+        {source: "I haven't got a care in the world", translate: "Меня ничто не тревожит(мне не о чем беспокоится)"},
+        {source: "I couldn't care less", translate: "Мне совершенно безразлично (наплевать)"},
+        {source: "She threw a wobbly", translate: "Она не в себе"},
+        {source: "I had a complete fit", translate: "Меня не на шутку разозлили"},
+        {source: "She blew her top", translate: "У нее крьіша поехала"},
+        {source: "There's a bad vibe round here", translate: "Здесь плохая (тяжелая) атмосфера"},
+        {source: "(I'm) bored to death", translate: "(мне) смертельно скучно"},
+        {source: "Get annoyed", translate: "разражаться"},
+        {source: "(feel) miserable (about)", translate: "жалкий, несчастньій (из-за)"},
+        {source: "beside oneself with", translate: "вне себя от какого-то чувства"},
+        {source: "have half a mind to", translate: "подумьівать о том, чтобьі"},
+        {source: "keep cool", translate: "сохранять хладнокровие"},
+        {source: "take to heart", translate: "принимать близко к сердцу"},
+        {source: "sick and tired", translate: "уставший от чего-то надоедливого"},
+        {source: "come to one's senses", translate: "прийти в себя"},
+        {source: "straine at the leash", translate: "сгорать от нетерпения (сделать/делать что-то)"},
+      ]
+    }))
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
+          <div className={"bg-dark collapse " + (this.state.isMenuOpen ? "show" : "")} id="navbarHeader">
+            <div className="container">
+              <div className="row">
+                <div className="col-sm-8 col-md-7 py-4">
+                  <h4 className="text-white">About</h4>
+                  <p className="text-muted">Choose a subject and train the phrases.</p>
+                </div>
+                <div className="col-sm-4 offset-md-1 py-4">
+                  <h4 className="text-white">Subjects</h4>
+                  <ul className="list-unstyled">
+                    <li><a href="#" className="text-white">Business idioms</a></li>
+                    <li><a onClick={ () => {this.onMoodIdiomsClick()} } href="#" className="text-white">Mood idioms</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="navbar navbar-dark bg-dark box-shadow">
             <div className="container d-flex justify-content-between">
               <a href="javascript:;" className="navbar-brand d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                 <strong>Learning cards</strong>
               </a>
-              <button onClick={this.onClickHandler} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="true" aria-label="Toggle navigation">
+              <button onClick={ () => {this.setState({isMenuOpen: !this.state.isMenuOpen})} } className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="true" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
             </div>
