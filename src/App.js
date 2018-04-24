@@ -10,6 +10,7 @@ class App extends Component {
       isMenuOpen: false,
       currentCard: 0,
       fullCard: true,
+      reversed: false,
       cards: [
         {source: "Dead wood", translate: "балласт, что-нибуть негодное, бесполезное"},
         {source: "Put your oar in", translate: "Вставить свои 5 копеек, стревать в разговор"},
@@ -40,6 +41,7 @@ class App extends Component {
       isMenuOpen: false,
       currentCard: 0,
       fullCard: true,
+      reversed: false,
       cards: []
     }
     this.onClickHandler = this.onClickHandler.bind(this)
@@ -55,9 +57,16 @@ class App extends Component {
     }))
   }
   
-  onSelectHandler(data = true) {
+  toggleFullCards() {
     this.setState(prevState => ({ 
-      fullCard: data
+      fullCard: !prevState.fullCard
+    }))
+  }
+
+  reverseCards() {
+    this.setState(prevState => ({
+      reversed: !prevState.reversed,
+      cards: prevState.cards.map((el) => {return {source: el.translate, translate: el.source}})
     }))
   }
 
@@ -66,6 +75,7 @@ class App extends Component {
       isMenuOpen: false,
       currentCard: 0,
       fullCard: true,
+      reversed: false,
       cards: [
         {source: "I'm totally over the moon", translate: "Я безумно счастлив"},
         {source: "I haven't got a care in the world", translate: "Меня ничто не тревожит(мне не о чем беспокоится)"},
@@ -129,7 +139,7 @@ class App extends Component {
                   <div className="col-md-6 text-right">
                     <div className="form-check">
                       <label className="form-check-label">
-                        <input onChange={() => this.onSelectHandler(true)} className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked={this.state.fullCard} />
+                        <input onChange={() => this.toggleFullCards()} className="form-check-input" type="checkbox" checked={this.state.fullCard} />
                         Show full cards
                       </label>
                     </div>
@@ -137,8 +147,8 @@ class App extends Component {
                   <div className="col-md-6 text-left">
                     <div className="form-check">
                       <label className="form-check-label">
-                        <input onChange={() => this.onSelectHandler(false)} className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
-                        Show without translation
+                        <input onChange={() => this.reverseCards()} className="form-check-input" type="checkbox" checked={this.state.reversed} />
+                        Reverse Cards
                     </label>
                     </div>
                   </div>
