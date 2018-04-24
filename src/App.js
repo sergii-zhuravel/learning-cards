@@ -10,7 +10,7 @@ class App extends Component {
       isMenuOpen: false,
       currentCard: 0,
       fullCard: true,
-      reversed: false,
+      englishFirst: true,
       cards: [
         {source: "Dead wood", translate: "балласт, что-нибуть негодное, бесполезное"},
         {source: "Put your oar in", translate: "Вставить свои 5 копеек, стревать в разговор"},
@@ -27,11 +27,11 @@ class App extends Component {
         {source: "Basket case", translate: "Кто-либо или что-либо, находящееся в плачевном, изношенном состоянии, слабьій, немощньій человек"},
         {source: "Stress Puppy", translate: "Человек, преуспевающий в стрессовьіх ситуациях"},
         {source: "Seagull Manager", translate: "Тип менеджера, которьій налетает, шумит и улетает, оставляя после себя разраху и хаос"},
-        {source: "Empty suit", translate: "Работник, которьій не віполняет важную работу, не справляется с ней или устроился по протекции"},
+        {source: "Empty suit", translate: "Работник, которьій не вьіполняет важную работу, не справляется с ней или устроился по протекции"},
         {source: "Goldbricker", translate: "Человек, увиливающий, уклоняющийся от работьі, обязанностей, сачок, лентяй, халтурщик"},
-        {source: "Happy camper", translate: "Досаточно довольньій собой человек (иронич.)"},
+        {source: "Happy camper", translate: "Достаточно довольньій собой человек (иронич.)"},
         {source: "Wombat", translate: "Пустьішка (программа, не стоящая затрат денег, мозгов и времени; Странньій человек, странная личность"},
-        {source: "Mover and shaker", translate: "Первое лицо, лиятельное лицо"}
+        {source: "Mover and shaker", translate: "Первое лицо, влиятельное лицо"}
       ]
     })
   }
@@ -41,7 +41,7 @@ class App extends Component {
       isMenuOpen: false,
       currentCard: 0,
       fullCard: true,
-      reversed: false,
+      englishFirst: true,
       cards: []
     }
     this.onClickHandler = this.onClickHandler.bind(this)
@@ -65,7 +65,7 @@ class App extends Component {
 
   reverseCards() {
     this.setState(prevState => ({
-      reversed: !prevState.reversed,
+      englishFirst: !prevState.englishFirst,
       cards: prevState.cards.map((el) => {return {source: el.translate, translate: el.source}})
     }))
   }
@@ -75,17 +75,17 @@ class App extends Component {
       isMenuOpen: false,
       currentCard: 0,
       fullCard: true,
-      reversed: false,
+      englishFirst: true,
       cards: [
         {source: "I'm totally over the moon", translate: "Я безумно счастлив"},
-        {source: "I haven't got a care in the world", translate: "Меня ничто не тревожит(мне не о чем беспокоится)"},
+        {source: "I haven't got a care in the world", translate: "Меня ничто не тревожит(мне не о чем беспокоиться)"},
         {source: "I couldn't care less", translate: "Мне совершенно безразлично (наплевать)"},
         {source: "She threw a wobbly", translate: "Она не в себе"},
         {source: "I had a complete fit", translate: "Меня не на шутку разозлили"},
         {source: "She blew her top", translate: "У нее крьіша поехала"},
         {source: "There's a bad vibe round here", translate: "Здесь плохая (тяжелая) атмосфера"},
         {source: "(I'm) bored to death", translate: "(мне) смертельно скучно"},
-        {source: "Get annoyed", translate: "разражаться"},
+        {source: "Get annoyed", translate: "раздражаться"},
         {source: "(feel) miserable (about)", translate: "жалкий, несчастньій (из-за)"},
         {source: "beside oneself with", translate: "вне себя от какого-то чувства"},
         {source: "have half a mind to", translate: "подумьівать о том, чтобьі"},
@@ -140,15 +140,15 @@ class App extends Component {
                     <div className="form-check">
                       <label className="form-check-label">
                         <input onChange={() => this.toggleFullCards()} className="form-check-input" type="checkbox" checked={this.state.fullCard} />
-                        Show full cards
+                        Show with translation
                       </label>
                     </div>
                   </div>
                   <div className="col-md-6 text-left">
                     <div className="form-check">
                       <label className="form-check-label">
-                        <input onChange={() => this.reverseCards()} className="form-check-input" type="checkbox" checked={this.state.reversed} />
-                        Reverse Cards
+                        <input onChange={() => this.reverseCards()} className="form-check-input" type="checkbox" checked={this.state.englishFirst} />
+                        Show English first
                     </label>
                     </div>
                   </div>
