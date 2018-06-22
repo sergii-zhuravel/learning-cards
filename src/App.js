@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import BiCards from './BiCards';
+import NewWords from './NewWords';
 
 class App extends Component {
 
@@ -42,7 +44,8 @@ class App extends Component {
       currentCard: 0,
       fullCard: true,
       englishFirst: true,
-      cards: []
+      cards: [],
+      mode: 'cards'
     }
     this.onClickHandler = this.onClickHandler.bind(this)
   }
@@ -50,15 +53,19 @@ class App extends Component {
   componentWillMount() {
     this.setInitialState();
   }
-  
+
+  changeRootState(object) {
+    this.setState(object)
+  }
+
   onClickHandler() {
-    this.setState(prevState => ({ 
+    this.setState(prevState => ({
       currentCard: (prevState.currentCard >= prevState.cards.length-1) ? 0 : prevState.currentCard + 1
     }))
   }
-  
+
   toggleFullCards() {
-    this.setState(prevState => ({ 
+    this.setState(prevState => ({
       fullCard: !prevState.fullCard
     }))
   }
@@ -71,7 +78,7 @@ class App extends Component {
   }
 
   onMoodIdiomsClick() {
-    this.setState(prevState => ({ 
+    this.setState(prevState => ({
       isMenuOpen: false,
       currentCard: 0,
       fullCard: true,
@@ -97,6 +104,48 @@ class App extends Component {
       ]
     }))
   }
+  onNewWordsClick() {
+    this.setState(prevState => ({
+      isMenuOpen: false,
+      currentCard: 0,
+      fullCard: true,
+      englishFirst: true,
+      cards: [
+        {source: "Disposable", translate: "A disposable product is intended to be thrown away after use"},
+        {source: "Guilt-ridden", translate: "filled with feelings of guilt"},
+        {source: "Remorse", translate: "Remorse is an emotional expression of personal regret felt by a person after they have committed an act which they deem to be shameful, hurtful, or violent."},
+        {source: "Reckon", translate: "Opinion or recalculation"},
+        {source: "Rumor", translate: "A currently circulating story or report of uncertain or doubtful truth."},
+        {source: "Pillars", translate: "a tall vertical structure of stone, wood, or metal, used as a support for a building, or as an ornament or monument.."},
+        {source: "Rumor", translate: "A currently circulating story or report of uncertain or doubtful truth."},
+      ]
+    }))
+  }
+  onCondtionsClick() {
+    this.setState(prevState => ({
+      isMenuOpen: false,
+      currentCard: 0,
+      fullCard: true,
+      englishFirst: true,
+      cards: [
+        {
+          source: "Type 1: It is possible and also very likely that the condition will be fulfilled.",
+          translate: "Form: if + Simple Present, will-Future",
+          examples: ["Example: If I find her address, I’ll send her an invitation."]
+        },
+        {
+          source: "Type 2: It is possible but very unlikely, that the condition will be fulfilled.",
+          translate: "Form: if + Simple Past, Conditional I (= would + Infinitive)",
+          examples: ["Example: If I found her address, I would send her an invitation."]
+        },
+        {
+          source: "Type 3: It is impossible that the condition will be fulfilled because it refers to the past.",
+          translate: "Form: if + Past Perfect, Conditional II (= would + have + Past Participle)",
+          examples: ["Example: If I had found her address, I would have sent her an invitation."]
+        },
+      ]
+    }))
+  }
 
   render() {
     return (
@@ -114,6 +163,8 @@ class App extends Component {
                   <ul className="list-unstyled">
                     <li><a onClick={() => {this.setInitialState()}} href="#" className="text-white">Business idioms</a></li>
                     <li><a onClick={() => {this.onMoodIdiomsClick()}} href="#" className="text-white">Mood idioms</a></li>
+                    <li><a onClick={() => {this.onNewWordsClick()}} href="#" className="text-white">New words</a></li>
+                    <li><a onClick={() => {this.onCondtionsClick()}} href="#" className="text-white">Conditional Sentences</a></li>
                   </ul>
                 </div>
               </div>
@@ -132,44 +183,17 @@ class App extends Component {
           </div>
         </header>
         <main>
-          <section  className="jumbotron specialjum text-center">
-            <div>
-              <form action="" className="" >
-                <div className="d-flex justify-content-center">
-                  <div className="col-md-6 text-right">
-                    <div className="form-check">
-                      <label className="form-check-label">
-                        <input onChange={() => this.toggleFullCards()} className="form-check-input" type="checkbox" checked={this.state.fullCard} />
-                        Show with translation
-                      </label>
-                    </div>
-                  </div>
-                  <div className="col-md-6 text-left">
-                    <div className="form-check">
-                      <label className="form-check-label">
-                        <input onChange={() => this.reverseCards()} className="form-check-input" type="checkbox" checked={this.state.englishFirst} />
-                        Show English first
-                    </label>
-                    </div>
-                  </div>
-                </div>
-                </form>
-            </div>
-                <div onClick={this.onClickHandler} style={{cursor:'pointer', borderRadius: 10}} className="container bg-light box-shadow py-5">
-                  <h1 className="jumbotron-heading">{this.state.cards[this.state.currentCard].source}</h1>
-                  {this.state.fullCard &&
-                    <p className="lead text-muted">{this.state.cards[this.state.currentCard].translate}</p>
-                  }
-                </div>
-                <div className="text-muted">
-                  <button onClick={ () => {this.setState({currentCard: 0})} } className="fa fa-fast-backward"></button>
-                  <button onClick={ () => {this.setState({currentCard:this.state.currentCard != 0 ? this.state.currentCard - 1 : 0})} } className="fa fa-step-backward"></button>
-                  -{this.state.currentCard + 1}-
-                  <button onClick={ () => {this.setState({currentCard:this.state.currentCard < this.state.cards.length-1 ? this.state.currentCard + 1 : this.state.cards.length-1})} } className="fa fa-step-forward"></button>
-                  <button onClick={ () => {this.setState({currentCard: this.state.cards.length-1})} } className="fa fa-fast-forward"></button>
-                  
-                </div>
-          </section>
+          {this.state.mode === 'cards' &&
+            <BiCards state={this.state}
+              changeRootState={this.changeRootState.bind(this)}
+              toggleFullCards={this.toggleFullCards.bind(this)}
+              reverseCards={this.reverseCards.bind(this)}
+              onClickHandler={this.onClickHandler.bind(this)}
+            />
+          }
+          {this.state.mode === 'new-words' &&
+            <NewWords />
+          }
         </main>
       </div>
     );
