@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import BiCards from './BiCards';
-import NewWords from './NewWords';
+import BiCards from './components/BiCards';
+import NewWords from './components/NewWords';
 
 class App extends Component {
 
@@ -121,7 +121,7 @@ class App extends Component {
       ]
     }))
   }
-  onCondtionsClick() {
+  onConditionsClick() {
     this.setState(prevState => ({
       isMenuOpen: false,
       currentCard: 0,
@@ -164,7 +164,7 @@ class App extends Component {
                     <li><a onClick={() => {this.setInitialState()}} href="#" className="text-white">Business idioms</a></li>
                     <li><a onClick={() => {this.onMoodIdiomsClick()}} href="#" className="text-white">Mood idioms</a></li>
                     <li><a onClick={() => {this.onNewWordsClick()}} href="#" className="text-white">New words</a></li>
-                    <li><a onClick={() => {this.onCondtionsClick()}} href="#" className="text-white">Conditional Sentences</a></li>
+                    <li><a onClick={() => {this.onConditionsClick()}} href="#" className="text-white">Conditional Sentences</a></li>
                   </ul>
                 </div>
               </div>
