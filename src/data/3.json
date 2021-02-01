@@ -1,0 +1,27 @@
+{
+  "menuId": 3,
+  "items": [
+    {
+      "source": "Disposable",
+      "translate": "A disposable product is intended to be thrown away after use"
+    },
+    { "source": "Guilt-ridden", "translate": "filled with feelings of guilt" },
+    {
+      "source": "Remorse",
+      "translate": "Remorse is an emotional expression of personal regret felt by a person after they have committed an act which they deem to be shameful, hurtful, or violent."
+    },
+    { "source": "Reckon", "translate": "Opinion or recalculation" },
+    {
+      "source": "Rumor",
+      "translate": "A currently circulating story or report of uncertain or doubtful truth."
+    },
+    {
+      "source": "Pillars",
+      "translate": "a tall vertical structure of stone, wood, or metal, used as a support for a building, or as an ornament or monument.."
+    },
+    {
+      "source": "Rumor",
+      "translate": "A currently circulating story or report of uncertain or doubtful truth."
+    }
+  ]
+}

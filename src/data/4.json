@@ -1,0 +1,26 @@
+{
+  "menuId": 4,
+  "items": [
+    {
+      "source": "Type 1: It is possible and also very likely that the condition will be fulfilled.",
+      "translate": "Form: if + Simple Present, will-Future",
+      "examples": [
+        "Example: If I find her address, I’ll send her an invitation."
+      ]
+    },
+    {
+      "source": "Type 2: It is possible but very unlikely, that the condition will be fulfilled.",
+      "translate": "Form: if + Simple Past, Conditional I (= would + Infinitive)",
+      "examples": [
+        "Example: If I found her address, I would send her an invitation."
+      ]
+    },
+    {
+      "source": "Type 3: It is impossible that the condition will be fulfilled because it refers to the past.",
+      "translate": "Form: if + Past Perfect, Conditional II (= would + have + Past Participle)",
+      "examples": [
+        "Example: If I had found her address, I would have sent her an invitation."
+      ]
+    }
+  ]
+}

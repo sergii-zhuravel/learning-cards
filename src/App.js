@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import BiCards from './components/BiCards';
 import NewWords from './components/NewWords';
+import business from './data/1.json';
+import mood from './data/2.json';
+import newWords from './data/3.json';
+import conditional from './data/4.json';
 
 class App extends Component {
 
@@ -13,30 +17,10 @@ class App extends Component {
       currentCard: 0,
       fullCard: true,
       englishFirst: true,
-      cards: [
-        {source: "Dead wood", translate: "балласт, что-нибуть негодное, бесполезное"},
-        {source: "Put your oar in", translate: "Вставить свои 5 копеек, стревать в разговор"},
-        {source: "Been counter", translate: "Бухгалтер, счетовод"},
-        {source: "Rat race", translate: "Бешенная погоня за богатством, ожесточенная конкуренция"},
-        {source: "Dogsbody", translate: "мальчик на побегушках, принеси подай, за маленькую плату"},
-        {source: "Cushy job", translate: "Непьільная работенка, тепленькое местечко"},
-        {source: "Get the boot", translate: "Бьіть уволенньім"},
-        {source: "A Mickey Mouse job", translate: "Халтура, несерьезная, наспех сделанная работа"},
-        {source: "Lip service", translate: "Неискренние словоизлияния, пустьіе слова"},
-        {source: "Lemon", translate: "Барахло, недоброкачественное изделие"},
-        {source: "Cash cow", translate: "Надежньій источник денег, дойная корова"},
-        {source: "Idea hamster", translate: "Генератор идей"},
-        {source: "Basket case", translate: "Кто-либо или что-либо, находящееся в плачевном, изношенном состоянии, слабьій, немощньій человек"},
-        {source: "Stress Puppy", translate: "Человек, преуспевающий в стрессовьіх ситуациях"},
-        {source: "Seagull Manager", translate: "Тип менеджера, которьій налетает, шумит и улетает, оставляя после себя разраху и хаос"},
-        {source: "Empty suit", translate: "Работник, которьій не вьіполняет важную работу, не справляется с ней или устроился по протекции"},
-        {source: "Goldbricker", translate: "Человек, увиливающий, уклоняющийся от работьі, обязанностей, сачок, лентяй, халтурщик"},
-        {source: "Happy camper", translate: "Достаточно довольньій собой человек (иронич.)"},
-        {source: "Wombat", translate: "Пустьішка (программа, не стоящая затрат денег, мозгов и времени; Странньій человек, странная личность"},
-        {source: "Mover and shaker", translate: "Первое лицо, влиятельное лицо"}
-      ]
+      cards: business.items
     })
   }
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -83,25 +67,7 @@ class App extends Component {
       currentCard: 0,
       fullCard: true,
       englishFirst: true,
-      cards: [
-        {source: "I'm totally over the moon", translate: "Я безумно счастлив"},
-        {source: "I haven't got a care in the world", translate: "Меня ничто не тревожит(мне не о чем беспокоиться)"},
-        {source: "I couldn't care less", translate: "Мне совершенно безразлично (наплевать)"},
-        {source: "She threw a wobbly", translate: "Она не в себе"},
-        {source: "I had a complete fit", translate: "Меня не на шутку разозлили"},
-        {source: "She blew her top", translate: "У нее крьіша поехала"},
-        {source: "There's a bad vibe round here", translate: "Здесь плохая (тяжелая) атмосфера"},
-        {source: "(I'm) bored to death", translate: "(мне) смертельно скучно"},
-        {source: "Get annoyed", translate: "раздражаться"},
-        {source: "(feel) miserable (about)", translate: "жалкий, несчастньій (из-за)"},
-        {source: "beside oneself with", translate: "вне себя от какого-то чувства"},
-        {source: "have half a mind to", translate: "подумьівать о том, чтобьі"},
-        {source: "keep cool", translate: "сохранять хладнокровие"},
-        {source: "take to heart", translate: "принимать близко к сердцу"},
-        {source: "sick and tired", translate: "уставший от чего-то надоедливого"},
-        {source: "come to one's senses", translate: "прийти в себя"},
-        {source: "straine at the leash", translate: "сгорать от нетерпения (сделать/делать что-то)"},
-      ]
+      cards: mood.items
     }))
   }
   onNewWordsClick() {
@@ -110,15 +76,7 @@ class App extends Component {
       currentCard: 0,
       fullCard: true,
       englishFirst: true,
-      cards: [
-        {source: "Disposable", translate: "A disposable product is intended to be thrown away after use"},
-        {source: "Guilt-ridden", translate: "filled with feelings of guilt"},
-        {source: "Remorse", translate: "Remorse is an emotional expression of personal regret felt by a person after they have committed an act which they deem to be shameful, hurtful, or violent."},
-        {source: "Reckon", translate: "Opinion or recalculation"},
-        {source: "Rumor", translate: "A currently circulating story or report of uncertain or doubtful truth."},
-        {source: "Pillars", translate: "a tall vertical structure of stone, wood, or metal, used as a support for a building, or as an ornament or monument.."},
-        {source: "Rumor", translate: "A currently circulating story or report of uncertain or doubtful truth."},
-      ]
+      cards: newWords.items
     }))
   }
   onConditionsClick() {
@@ -127,23 +85,7 @@ class App extends Component {
       currentCard: 0,
       fullCard: true,
       englishFirst: true,
-      cards: [
-        {
-          source: "Type 1: It is possible and also very likely that the condition will be fulfilled.",
-          translate: "Form: if + Simple Present, will-Future",
-          examples: ["Example: If I find her address, I’ll send her an invitation."]
-        },
-        {
-          source: "Type 2: It is possible but very unlikely, that the condition will be fulfilled.",
-          translate: "Form: if + Simple Past, Conditional I (= would + Infinitive)",
-          examples: ["Example: If I found her address, I would send her an invitation."]
-        },
-        {
-          source: "Type 3: It is impossible that the condition will be fulfilled because it refers to the past.",
-          translate: "Form: if + Past Perfect, Conditional II (= would + have + Past Participle)",
-          examples: ["Example: If I had found her address, I would have sent her an invitation."]
-        },
-      ]
+      cards: conditional.items
     }))
   }
 

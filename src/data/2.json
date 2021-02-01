@@ -1,0 +1,55 @@
+{
+  "menuId": 2,
+  "items": [
+    {
+      "source": "I'm totally over the moon",
+      "translate": "Я безумно счастлив"
+    },
+    {
+      "source": "I haven't got a care in the world",
+      "translate": "Меня ничто не тревожит(мне не о чем беспокоиться)"
+    },
+    {
+      "source": "I couldn't care less",
+      "translate": "Мне совершенно безразлично (наплевать)"
+    },
+    { "source": "She threw a wobbly", "translate": "Она не в себе" },
+    {
+      "source": "I had a complete fit",
+      "translate": "Меня не на шутку разозлили"
+    },
+    { "source": "She blew her top", "translate": "У нее крьіша поехала" },
+    {
+      "source": "There's a bad vibe round here",
+      "translate": "Здесь плохая (тяжелая) атмосфера"
+    },
+    {
+      "source": "(I'm) bored to death",
+      "translate": "(мне) смертельно скучно"
+    },
+    { "source": "Get annoyed", "translate": "раздражаться" },
+    {
+      "source": "(feel) miserable (about)",
+      "translate": "жалкий, несчастньій (из-за)"
+    },
+    {
+      "source": "beside oneself with",
+      "translate": "вне себя от какого-то чувства"
+    },
+    {
+      "source": "have half a mind to",
+      "translate": "подумьівать о том, чтобьі"
+    },
+    { "source": "keep cool", "translate": "сохранять хладнокровие" },
+    { "source": "take to heart", "translate": "принимать близко к сердцу" },
+    {
+      "source": "sick and tired",
+      "translate": "уставший от чего-то надоедливого"
+    },
+    { "source": "come to one's senses", "translate": "прийти в себя" },
+    {
+      "source": "straine at the leash",
+      "translate": "сгорать от нетерпения (сделать/делать что-то)"
+    }
+  ]
+}
