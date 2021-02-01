@@ -10,17 +10,6 @@ import newWords from './data/3.json';
 import conditional from './data/4.json';
 
 class App extends Component {
-
-  setInitialState() {
-    this.setState ({
-      isMenuOpen: false,
-      currentCard: 0,
-      fullCard: true,
-      englishFirst: true,
-      cards: business.items
-    })
-  }
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -28,14 +17,10 @@ class App extends Component {
       currentCard: 0,
       fullCard: true,
       englishFirst: true,
-      cards: [],
+      cards: business.items,
       mode: 'cards'
     }
     this.onClickHandler = this.onClickHandler.bind(this)
-  }
-
-  componentWillMount() {
-    this.setInitialState();
   }
 
   changeRootState(object) {
