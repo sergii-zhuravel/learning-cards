@@ -1,7 +1,13 @@
 {
-  "main.css": "static/css/main.3f46f884.css",
-  "main.css.map": "static/css/main.3f46f884.css.map",
-  "main.js": "static/js/main.73eba981.js",
-  "main.js.map": "static/js/main.73eba981.js.map",
-  "static/media/logo.svg": "static/media/logo.5d5d9eef.svg"
+  "files": {
+    "main.css": "/learning-cards/static/css/main.e17a8ea4.css",
+    "main.js": "/learning-cards/static/js/main.755d19a4.js",
+    "index.html": "/learning-cards/index.html",
+    "main.e17a8ea4.css.map": "/learning-cards/static/css/main.e17a8ea4.css.map",
+    "main.755d19a4.js.map": "/learning-cards/static/js/main.755d19a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e17a8ea4.css",
+    "static/js/main.755d19a4.js"
+  ]
 }
